@@ -1,0 +1,476 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 统一盒模型 */
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif; /* 更现代的字体 */
+    -webkit-text-size-adjust: none;
+    background: #f5f7fa; /* 更柔和的背景色 */
+}
+
+body {
+    padding: 15px;
+    background: #f5f7fa;
+    position: relative;
+    line-height: 1.5; /* 优化行高 */
+}
+
+select, input[type="text"], input[type="password"] {
+    height: 26px;
+    line-height: 26px;
+    padding: 0 8px; /* 增加内边距 */
+    border: 1px solid #c9cdcf;
+    border-radius: 6px;
+    transition: border-color 0.2s;
+}
+
+select:focus, input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #07C160; /* 聚焦时边框变色 */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(7, 193, 96, 0.1); /* 聚焦光晕 */
+}
+
+.left {
+    float: left;
+}
+
+/* 右上角信息区域容器 */
+.right-top {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 450px;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.freeze {
+    position: absolute;
+    text-align: center;
+    background: rgba(52, 52, 52, 0.6); /* 简化透明度写法 */
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 居中内容 */
+}
+
+.vtop {
+    vertical-align: middle;
+    margin-top: -1px;
+}
+
+/* 插件区域 */
+.plugin {
+    width: 500px;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e1e4e8;
+    background: #000; /* 视频区域黑色背景更合适 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 15px; /* 增加底部间距 */
+}
+
+/* 字段集样式 */
+fieldset {
+    display: block;
+    border-radius: 16px;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    padding: 15px; /* 增加内边距 */
+    background: white; /* 白色背景提升内容可读性 */
+}
+
+legend {
+    font-weight: 600;
+    color: #333;
+    padding: 0 8px;
+    margin-left: 10px;
+}
+
+/* 按钮样式优化 - 文字居中 */
+.btn, .btn2 {
+    background-color: #07C160;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s; /* 所有属性过渡 */
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px; /* 确保文字垂直居中 */
+    padding: 0 12px; /* 增加按钮内边距 */
+    font-weight: 500;
+    text-align: center; /* 文字水平居中 */
+    display: inline-flex; /* 弹性布局确保居中 */
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover, .btn2:hover {
+    background-color: #06B155;
+    transform: translateY(-1px); /* 轻微上浮效果 */
+    box-shadow: 0 2px 4px rgba(7, 193, 96, 0.2);
+}
+
+.btn:active, .btn2:active {
+    background-color: #05A04A;
+    transform: translateY(0); /* 点击时复位 */
+}
+
+/* 表格样式优化 */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px; /* 增加行间距 */
+}
+
+td {
+    padding: 4px 0;
+}
+
+.tt {
+    text-align: right;
+    padding-right: 10px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* 本地配置 */
+.localconfig {
+    width: 480px;
+    padding: 10px;
+}
+
+.localconfig .tt {
+    width: 125px;
+}
+
+.localconfig .txt {
+    width: 310px;
+}
+
+.localconfig .txt2 {
+    width: 300px;
+}
+
+.localconfig .btn {
+    width: 45px;
+}
+
+.localconfig .sel {
+    width: 120px;
+}
+
+/* 登录区域 */
+.login {
+    width: 480px;
+    padding: 10px;
+}
+
+.login .tt {
+    width: 100px;
+}
+
+.login .txt {
+    width: 130px;
+}
+
+.login .btn {
+    width: 45px;
+}
+
+.login .btn2 {
+    width: 100px;
+}
+
+.login .sel {
+    width: 130px;
+}
+
+.login .sel2 {
+    width: 65px;
+}
+
+/* 数字通道 */
+.ipchannel {
+    width: 480px;
+    padding: 10px;
+}
+
+.ipchannel .btn {
+    width: 130px;
+}
+
+.ipchannel .digitaltdiv {
+    height: 100px;
+    overflow: hidden;
+    overflow-y: auto;
+    border: 1px solid #e1e4e8;
+    font-size: 11px;
+    border-radius: 8px;
+    padding: 5px;
+    background: white;
+}
+
+.ipchannel .digitalchannellist th, 
+.ipchannel .digitalchannellist td {
+    padding: 4px 6px;
+    border: 1px solid #e1e4e8;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.ipchannel .digitalchannellist th {
+    background: #f5f7fa;
+    font-weight: 600;
+}
+
+/* 预览区域 */
+.preview {
+    width: 450px;
+    padding: 10px;
+    padding-top: 0;
+    margin-left: 10px;
+}
+
+.preview .tt {
+    width: 60px;
+}
+
+.preview .txt {
+    width: 30px;
+}
+
+.preview .btn {
+    width: 70px;
+}
+
+.preview .btn2 {
+    width: 90px;
+}
+
+.preview .sel {
+    width: 105px;
+}
+
+/* 云台控制 */
+.ptz {
+    width: 450px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.ptz .tt {
+    width: 60px;
+}
+
+.ptz .txt {
+    width: 60px;
+}
+
+.ptz .btn {
+    width: 45px;
+}
+
+.ptz .btn2 {
+    width: 60px;
+}
+
+.ptz .sel {
+    width: 65px;
+}
+
+/* 回放区域 */
+.playback {
+    width: 450px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.playback .tt {
+    width: 60px;
+}
+
+.playback .txt {
+    width: 140px;
+}
+
+.playback .btn {
+    width: 45px;
+}
+
+.playback .btn2 {
+    width: 70px;
+}
+
+.playback .sel {
+    width: 142px;
+}
+
+.playback .searchdiv {
+    height: 100px;
+    overflow: hidden;
+    overflow-y: auto;
+    border: 1px solid #e1e4e8;
+    font-size: 11px;
+    border-radius: 8px;
+    padding: 5px;
+    background: white;
+}
+
+.playback .searchlist th, 
+.playback .searchlist td {
+    padding: 4px 6px;
+    border: 1px solid #e1e4e8;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.playback .searchlist th {
+    background: #f5f7fa;
+    font-weight: 600;
+}
+
+/* 系统维护 */
+.maintain {
+    width: 450px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.maintain .tt {
+    width: 60px;
+}
+
+.maintain .txt {
+    width: 280px;
+}
+
+.maintain .btn {
+    width: 45px;
+}
+
+.maintain .btn2 {
+    width: 100px;
+}
+
+.maintain .sel {
+    width: 65px;
+}
+
+/* 操作信息 */
+.operate {
+    width: 450px;
+    padding: 10px;
+}
+
+.operate .opinfo {
+    height: 150px;
+    border: 1px solid #e1e4e8;
+    overflow: auto;
+    border-radius: 8px;
+    padding: 8px;
+    background: white;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* 事件回调 */
+.callback {
+    width: 450px;
+    padding: 10px;
+}
+
+.callback .cbinfo {
+    height: 114px;
+    border: 1px solid #e1e4e8;
+    overflow: auto;
+    border-radius: 8px;
+    padding: 8px;
+    background: white;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* IP解析 */
+.ipparse {
+    width: 450px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.ipparse .tt {
+    width: 85px;
+}
+
+.ipparse .txt {
+    width: 130px;
+}
+
+.ipparse .btn {
+    width: 90px;
+}
+
+.ipparse .sel {
+    width: 130px;
+}
+
+/* 绘图区域 */
+.draw {
+    width: 450px;
+    padding: 10px;
+    padding-top: 0;
+    margin-left: 10px;
+}
+
+.draw .tt {
+    width: 60px;
+}
+
+.draw .txt {
+    width: 140px;
+}
+
+.draw .btn {
+    width: 70px;
+}
+
+.draw .btn2 {
+    width: 100px;
+}
+
+.draw .sel {
+    width: 105px;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
